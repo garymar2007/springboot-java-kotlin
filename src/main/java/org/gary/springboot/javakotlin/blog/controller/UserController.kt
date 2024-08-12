@@ -1,25 +1,17 @@
-package org.gary.springboot.javakotlin.blog.controller;
+package org.gary.springboot.javakotlin.blog.controller
 
-import lombok.RequiredArgsConstructor;
-import org.gary.springboot.javakotlin.blog.entities.User;
-import org.gary.springboot.javakotlin.blog.services.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.gary.springboot.javakotlin.blog.services.UserService
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/api/users")
-public class UserController {
-    private final UserService userService;
-
+class UserController(private val userService: UserService) {
     @GetMapping("/")
-    public Iterable<User> getUsers() {
-        return userService.findAll();
-    }
+    fun findAll() = userService.findAll()
 
     @GetMapping("/{login}")
-    public User getUser(String login) {
-        return userService.findByLogin(login);
-    }
+    fun findOne(@PathVariable login: String) = userService.findByLogin(login)
 }

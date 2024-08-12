@@ -1,9 +1,9 @@
-package org.gary.springboot.javakotlin.blog.repository;
+package org.gary.springboot.javakotlin.blog.repository
 
-import org.gary.springboot.javakotlin.blog.entities.Article;
-import org.springframework.data.repository.CrudRepository;
+import org.gary.springboot.javakotlin.blog.entities.Article
+import org.springframework.data.repository.CrudRepository
 
-public interface ArticleRepository extends CrudRepository<Article, Long> {
-    Article findBySlug(String slug);
-    Iterable<Article> findAllByOrderByAddedAtDesc();
+interface ArticleRepository : CrudRepository<Article, Long> {
+    fun findBySlug(slug: String): Article?
+    fun findAllByOrderByAddedAtDesc(): Iterable<Article?>
 }

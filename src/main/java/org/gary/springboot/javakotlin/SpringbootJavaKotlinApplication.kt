@@ -1,13 +1,13 @@
-package org.gary.springboot.javakotlin;
+package org.gary.springboot.javakotlin
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.SpringApplication
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
 
 @SpringBootApplication
-public class SpringbootJavaKotlinApplication {
+open class SpringbootJavaKotlinApplication
 
-    public static void main(String[] args) {
-        SpringApplication.run(SpringbootJavaKotlinApplication.class, args);
-    }
-
+fun main(args: Array<String>) {
+    runApplication<SpringbootJavaKotlinApplication>(*args)
 }
+

@@ -1,30 +1,21 @@
-package org.gary.springboot.javakotlin.blog.entities;
+package org.gary.springboot.javakotlin.blog.entities
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.Id
+import jakarta.persistence.ManyToOne
+import java.time.LocalDateTime
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-public class Article {
+class Article (
     @Id
     @GeneratedValue
-    private Long id;
-    private String title;
-    private String headline;
-    private String content;
+    val id: Long? = null,
+    val title: String? = null,
+    val headline: String? = null,
+    val content: String? = null,
     @ManyToOne
-    private User author;
-    private String slug;
-    private LocalDateTime addedAt;
-}
+    val author: User,
+    val slug: String? = null,
+    val addedAt: LocalDateTime? = null
+)

@@ -1,20 +1,12 @@
-package org.gary.springboot.javakotlin.blog.services;
+package org.gary.springboot.javakotlin.blog.services
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.gary.springboot.javakotlin.blog.repository.UserRepository;
-import org.gary.springboot.javakotlin.blog.entities.User;
+import lombok.RequiredArgsConstructor
+import org.gary.springboot.javakotlin.blog.entities.User
+import org.gary.springboot.javakotlin.blog.repository.UserRepository
+import org.springframework.stereotype.Service
 
 @Service
-@RequiredArgsConstructor
-public class UserService {
-    private final UserRepository userRepository;
-
-    public User findByLogin(String login) {
-        return userRepository.findByLogin(login);
-    }
-
-    public Iterable<User> findAll() {
-        return userRepository.findAll();
-    }
+class UserService(private val userRepository: UserRepository) {
+    fun findByLogin(login: String?): User? = userRepository.findByLogin(login)
+    fun findAll() = userRepository.findAll()
 }
