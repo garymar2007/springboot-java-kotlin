@@ -7,6 +7,6 @@ import org.springframework.stereotype.Service
 
 @Service
 class UserService(private val userRepository: UserRepository) {
-    fun findByLogin(login: String?): User? = userRepository.findByLogin(login)
-    fun findAll() = userRepository.findAll()
+    fun findByLogin(login: String): User? = userRepository.findByLogin(login)
+    fun findAll(): Iterable<User>? = userRepository.findAll()
 }

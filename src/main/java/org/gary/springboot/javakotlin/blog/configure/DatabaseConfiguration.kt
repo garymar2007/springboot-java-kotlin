@@ -17,22 +17,28 @@ open class DatabaseConfiguration {
         articleRepository: ArticleRepository) = ApplicationRunner {
         // Database initialization
         val garyMa: User = userRepository.save(
-            User("garyma", "Gary", "Ma")
+            User("garyma", "Gary", "Ma", "Chinese", 1L)
         )
         articleRepository.save(
             Article(
+                id = 1L,
                 title = "Spring Boot",
                 headline = "Spring Boot is a framework for Java",
                 content = "Spring Boot is a framework for Java",
-                author = garyMa
+                author = garyMa,
+                slug = "spring-boot",
+                addedAt = java.time.LocalDateTime.now()
             )
         )
         articleRepository.save(
             Article(
+                id = 2L,
                 title = "Kotlin",
                 headline = "Kotlin is a programming language",
                 content = "Kotlin is a programming language",
-                author = garyMa
+                author = garyMa,
+                slug = "kotlin",
+                addedAt = java.time.LocalDateTime.now()
             )
         )
     }

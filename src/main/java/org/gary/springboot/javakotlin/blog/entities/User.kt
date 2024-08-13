@@ -7,10 +7,18 @@ import lombok.NoArgsConstructor
 
 @Entity
 @NoArgsConstructor
-class User (
+data class User (
     var login: String,
     var firstName: String,
     var lastName: String,
-    var description: String? = null,
-    @Id  @GeneratedValue var id: Long? = null
-)
+    var description: String,
+    @Id  @GeneratedValue var id: Long
+) {
+    override fun hashCode(): Int = this.id.hashCode()
+
+    override fun equals(other: Any?): Boolean  = when(other) {
+        null -> false
+        is User -> this.id == other.id
+        else -> false
+    }
+}

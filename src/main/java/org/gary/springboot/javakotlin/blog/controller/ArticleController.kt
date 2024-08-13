@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController
 class ArticleController(private val articleService: ArticleService) {
 
     @GetMapping("/")
-    fun findAll() = articleService.findAllByOrderByAddedAtDesc()
+    fun findAll(): Iterable<Article> = articleService.findAllByOrderByAddedAtDesc()
 
     @GetMapping("/{slug}")
-    fun findOne(@PathVariable slug: String) = articleService.findBySlug(slug)
+    fun findOne(@PathVariable slug: String): Article? = articleService.findBySlug(slug)
 }
